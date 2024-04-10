@@ -1,0 +1,27 @@
+import random
+
+def respond_to_greeting(message):
+    greetings = ["hello", "hi", "hey"]
+    if message.lower() in greetings:
+        return random.choice(["Hello!", "Hi there!", "Hey!"])
+    else:
+        return "I'm sorry, I don't understand that greeting."
+
+def respond_to_weather_inquiry(message):
+    if "weather" in message.lower():
+        return random.choice(["The weather is nice today.", "It's sunny outside.", "Looks like it might rain."])
+    else:
+        return "I'm sorry, I can only talk about the weather right now."
+
+def chat():
+    print("lily : Hi, how can I help you?")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "bye":
+            print("lily : Goodbye!")
+            break
+        response = respond_to_greeting(user_input) or respond_to_weather_inquiry(user_input)
+        print("lily :", response)
+
+if __name__ == "__main__":
+    chat()
